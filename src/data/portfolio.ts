@@ -88,42 +88,42 @@ export const portfolioItems: PortfolioItem[] = [
   // ── 3D Mockups ──────────────────────────────────────────────
   {
     id: "3d-01",
-    title: "Premium Cosmetics Packaging",
+    title: "Apple Cider Vinegar 3D Render",
     category: "3D Mockups",
     description:
-      "Photorealistic 3D renders of a luxury skincare line including boxes, bottles, and tubes. Studio-lit scene with marble and botanical props.",
+      "Photorealistic 3D rendering and product presentation for Ayur Shape Wellness's Apple Cider Vinegar Effervescent Tablets bottle on a pedestal.",
     brief:
-      "A premium skincare brand needed pre-production visuals for investor presentations. The renders were so realistic, investors thought they were photographs.",
-    image: "/portfolio/mockup-3d-1.png",
-    client: "Aura Skincare",
-    tools: ["Blender", "Photoshop", "Substance Painter"],
+      "Designed to evoke a clean, natural, and therapeutic feeling, using light pastel tones, dynamic splash effects, and clean typography.",
+    image: "/portfolio/user-portfolio-4.jpeg",
+    client: "Ayur Shape Wellness",
+    tools: ["Cinema 4D", "Octane Render", "Photoshop"],
     featured: true,
     year: 2024,
   },
   {
     id: "3d-02",
-    title: "Artisan Coffee Brand Identity",
+    title: "Diabetic Gummies 3D Mockup",
     category: "3D Mockups",
     description:
-      "Complete 3D branding mockup for an artisan coffee brand — packaging bags, cups, merchandise, and storefront signage rendered in a warm, inviting scene.",
+      "Premium pre-production product visualization and packaging mockup for Ayur Shape Wellness's Diabetic Gummies box and bottle set.",
     brief:
-      "Before manufacturing a single product, the client used these renders to secure retail partnerships with three major chains.",
-    image: "/portfolio/mockup-3d-2.png",
-    client: "Ember Roasters",
-    tools: ["Cinema 4D", "Octane Render", "Photoshop"],
+      "Visualizing the final printed boxes and bottles with custom textures, realistic gloss, and clean blueberry ingredients arrangement.",
+    image: "/portfolio/user-portfolio-2.jpeg",
+    client: "Ayur Shape Wellness",
+    tools: ["Blender", "Photoshop", "Substance Painter"],
     year: 2023,
   },
   {
     id: "3d-03",
-    title: "Smart Device Product Visualization",
+    title: "Ayur Shape Wellness Duo Mockup",
     category: "3D Mockups",
     description:
-      "Sleek 3D product visualizations for a smart home device. Multiple angles, exploded views, and lifestyle scenes rendered at advertising quality.",
+      "Sleek 3D product pair rendering of the Apple Cider Vinegar bottle alongside the Diabetic Gummies jar on a clean color-blocked background.",
     brief:
-      "Used for the product's Kickstarter campaign, which exceeded its funding goal by 340%.",
-    image: "/portfolio/mockup-3d-3.png",
-    client: "Hexa Technologies",
-    tools: ["Blender", "KeyShot", "After Effects"],
+      "Created for print marketing materials and ecommerce product catalogs, utilizing minimal reflection and shadows.",
+    image: "/portfolio/user-portfolio-10.jpeg",
+    client: "Ayur Shape Wellness",
+    tools: ["Blender", "KeyShot", "Photoshop"],
     year: 2024,
   },
 
@@ -201,15 +201,15 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "br-02",
-    title: "Sustainable Fashion Label",
+    title: "Ayur Shape Brand Identity System",
     category: "Branding",
     description:
-      "Earth-toned brand identity for a sustainable fashion startup. Includes wordmark, pattern system, packaging design, and e-commerce visual language.",
+      "Organic brand emblem and corporate logo design for Ayur Shape Wellness, centered around a circular leafy branch emblem representing holistic health.",
     brief:
-      "The brand launched with the identity we created and secured Series A funding within 6 months, with investors citing the 'professional and authentic visual identity' as a key factor.",
-    image: "/portfolio/branding-1.png",
-    client: "Woven Earth",
-    tools: ["Illustrator", "Figma", "Blender"],
+      "Developed a comprehensive color strategy and symbolic brand emblem that can be embossed on bottles, boxes, and corporate materials.",
+    image: "/portfolio/user-portfolio-7.jpeg",
+    client: "Ayur Shape Wellness",
+    tools: ["Illustrator", "Photoshop"],
     year: 2023,
   },
 ];
