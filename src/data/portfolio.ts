@@ -212,6 +212,88 @@ export const portfolioItems: PortfolioItem[] = [
     tools: ["Illustrator", "Photoshop"],
     year: 2023,
   },
+
+  // ── Neon Signs ─────────────────────────────────────────────
+  {
+    id: "ns-01",
+    title: "Sonic Neon Wall Art",
+    category: "Neon Signs",
+    description:
+      "A vibrant, wall-mounted LED neon art piece featuring a dynamic character illustration with layered red, blue, and pink neon glow effects on a dark acrylic backing.",
+    brief:
+      "Commissioned as a statement piece for a gaming lounge. The multi-layer neon tubing creates depth and an eye-catching retro-futuristic vibe.",
+    image: "/portfolio/neon-sonic.jpeg",
+    client: "Gaming Lounge",
+    tools: ["Illustrator", "LED Neon Flex", "Acrylic CNC"],
+    featured: true,
+    year: 2024,
+  },
+  {
+    id: "ns-02",
+    title: "Astronaut Moon Neon Sign",
+    category: "Neon Signs",
+    description:
+      "A playful astronaut sitting on a crescent moon, eating a burger and sipping a drink — crafted in warm white and golden neon tubing on a custom-cut acrylic base.",
+    brief:
+      "Designed for a café chain's new outlet. The whimsical illustration became the signature décor element customers photograph and share on social media.",
+    image: "/portfolio/neon-astronaut.jpeg",
+    client: "Café Client",
+    tools: ["Photoshop", "LED Neon Flex", "Acrylic Laser Cut"],
+    year: 2024,
+  },
+  {
+    id: "ns-03",
+    title: "Food Neon Sign Collection",
+    category: "Neon Signs",
+    description:
+      "A pair of vibrant food-themed neon signs — a ramen noodle bowl and a burger — designed for restaurant and street food branding. Bold colors and playful proportions.",
+    brief:
+      "Created for a food court installation. The signs are designed to be photographed and shared, driving organic social media engagement for the venue.",
+    image: "/portfolio/neon-food-signs.jpeg",
+    client: "Food Court Client",
+    tools: ["Illustrator", "LED Neon Flex", "Metal Frame"],
+    year: 2024,
+  },
+  {
+    id: "ns-04",
+    title: "Café Interior Neon Installation",
+    category: "Neon Signs",
+    description:
+      "An elegant three-arch neon installation featuring 'Enjoy the little things' script lettering on a live moss wall, flanked by warm-toned line-art figures of café patrons.",
+    brief:
+      "A boutique café wanted a signature Instagram-worthy wall. The combination of living moss, warm neon script, and line-art illustrations creates a cozy, premium atmosphere.",
+    image: "/portfolio/neon-cafe-interior.jpeg",
+    client: "Boutique Café",
+    tools: ["Procreate", "LED Neon Flex", "Interior Design"],
+    featured: true,
+    year: 2024,
+  },
+  {
+    id: "ns-05",
+    title: "Coffee Girl Line Art Neon",
+    category: "Neon Signs",
+    description:
+      "A warm gold single-line neon art piece depicting a girl holding a steaming coffee cup. Mounted on clear acrylic with a rainbow LED wave strip backdrop.",
+    brief:
+      "Designed as an ambient mood piece for a specialty coffee shop. The minimalist line-art style paired with warm golden neon creates an intimate, inviting glow.",
+    image: "/portfolio/neon-coffee-girl-dark.jpeg",
+    client: "Coffee Shop Client",
+    tools: ["Illustrator", "LED Neon Flex", "RGB Strip"],
+    year: 2023,
+  },
+  {
+    id: "ns-06",
+    title: "Coffee Girl Neon — Purple Ambiance",
+    category: "Neon Signs",
+    description:
+      "The same coffee girl line-art neon sign captured in an immersive purple-lit environment, showcasing how the piece transforms a space with ambient lighting and color wash.",
+    brief:
+      "This alternate installation shot demonstrates the versatility of neon art in different lighting moods — perfect for bars, lounges, and evening-ambiance spaces.",
+    image: "/portfolio/neon-coffee-girl-purple.jpeg",
+    client: "Coffee Shop Client",
+    tools: ["Illustrator", "LED Neon Flex", "RGB Strip"],
+    year: 2023,
+  },
 ];
 
 export const categories = [
@@ -219,6 +301,7 @@ export const categories = [
   "Business Cards",
   "Wedding Cards",
   "3D Mockups",
+  "Neon Signs",
   "Banners",
   "Templates",
   "Branding",

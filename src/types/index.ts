@@ -8,7 +8,8 @@ export type PortfolioCategory =
   | "3D Mockups"
   | "Banners"
   | "Templates"
-  | "Branding";
+  | "Branding"
+  | "Neon Signs";
 
 export interface PortfolioItem {
   id: string;
