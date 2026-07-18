@@ -23,11 +23,6 @@ const LoadingScreen = dynamic(
   { ssr: false }
 );
 
-const CustomCursor = dynamic(
-  () => import("@/components/layout/CustomCursor"),
-  { ssr: false }
-);
-
 const ThreeDShowcase = dynamic(
   () => import("@/components/sections/ThreeDShowcase"),
   {
@@ -59,7 +54,6 @@ export default function Home() {
     <>
       {/* Overlays */}
       <LoadingScreen />
-      <CustomCursor />
 
       {/* Navigation */}
       <Navbar />

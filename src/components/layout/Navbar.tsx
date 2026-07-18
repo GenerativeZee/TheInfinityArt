@@ -22,7 +22,7 @@ export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -42,7 +42,7 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "glass py-3 shadow-lg shadow-black/20"
+            ? "bg-background/90 backdrop-blur-md border-b border-white/5 py-3 shadow-lg shadow-black/40"
             : "bg-transparent py-5"
         )}
       >
@@ -50,11 +50,11 @@ export default function Navbar() {
           {/* Logo / Brand */}
           <Link href="#hero" className="group flex items-center gap-2">
             <Image
-              src="/infinity-logo.png"
+              src="/infinity-logo-v2.png"
               alt="The Infinity Art"
-              width={180}
+              width={258}
               height={48}
-              className="h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+              className="h-12 w-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
               priority
             />
           </Link>

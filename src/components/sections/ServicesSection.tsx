@@ -16,7 +16,7 @@ export default function ServicesSection() {
           description="Transparent pricing, no surprises. Choose the package that fits your project, or reach out for a custom quote."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto pt-4">
           {services.map((tier, index) => (
             <RevealOnScroll key={tier.id} delay={index * 0.15}>
               <div

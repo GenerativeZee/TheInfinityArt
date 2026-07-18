@@ -47,7 +47,7 @@ export default function ProcessSection() {
 
         <div className="relative max-w-5xl mx-auto">
           {/* Connecting line (desktop only) */}
-          <div className="hidden lg:block absolute top-16 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-px bg-gradient-to-r from-accent/20 via-accent/40 to-accent/20" />
+          <div className="hidden lg:block absolute top-6 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-px bg-gradient-to-r from-accent/20 via-accent/40 to-accent/20" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((item, index) => (

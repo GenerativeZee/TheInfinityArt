@@ -48,14 +48,14 @@ export default function TestimonialsSection() {
             onMouseLeave={() => setIsPaused(false)}
           >
             {/* Quote icon */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+            <div className="flex justify-center mb-4">
               <div className="h-12 w-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center">
                 <Quote size={20} className="text-accent" />
               </div>
             </div>
 
             {/* Testimonial card */}
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-8 lg:p-12 pt-12 text-center min-h-[320px] flex flex-col items-center justify-center">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-8 lg:p-12 text-center min-h-[320px] flex flex-col items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}

@@ -209,17 +209,30 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 @media (min-width: 768px) {
   .container-premium {
-    padding: 0 48px;
+    padding-left: 48px;
+    padding-right: 48px;
   }
 }
 
 @media (min-width: 1280px) {
   .container-premium {
-    padding: 0 64px;
+    padding-left: 64px;
+    padding-right: 64px;
   }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Section Stacking — Each section creates its own stacking 
+   context so absolute/fixed children never leak into neighbors.
+   ────────────────────────────────────────────────────────────── */
+main > section {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
 }

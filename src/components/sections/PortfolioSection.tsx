@@ -79,7 +79,7 @@ export default function PortfolioSection() {
                         exit={{ opacity: 0, scale: 0.9 }}
                         transition={{ duration: 0.4, delay: index * 0.05 }}
                         className={`group relative rounded-2xl overflow-hidden border border-border bg-card cursor-pointer gold-glow ${
-                          item.featured ? "sm:col-span-2 sm:row-span-2" : ""
+                          item.featured ? "sm:col-span-2" : ""
                         }`}
                         onClick={() => setSelectedProject(item)}
                       >
@@ -108,7 +108,7 @@ export default function PortfolioSection() {
                           <div className="absolute inset-0 bg-black/30 group-hover:opacity-0 transition-opacity duration-500 z-0" />
 
                           {/* Category label - styled in gold accent */}
-                          <div className="absolute top-4 left-4 z-25">
+                          <div className="absolute top-4 left-4 z-20">
                             <span className="px-3 py-1 text-[10px] font-semibold tracking-wider uppercase rounded-full bg-accent/10 backdrop-blur-md text-accent border border-accent/20">
                               {item.category}
                             </span>
@@ -116,7 +116,7 @@ export default function PortfolioSection() {
 
                           {/* Featured badge */}
                           {item.featured && (
-                            <div className="absolute top-4 right-4 z-25">
+                            <div className="absolute top-4 right-4 z-20">
                               <span className="px-3 py-1 text-[10px] font-semibold tracking-wider uppercase rounded-full bg-accent text-background shadow-lg shadow-accent/20">
                                 Featured
                               </span>

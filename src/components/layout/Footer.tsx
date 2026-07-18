@@ -38,11 +38,11 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link href="#hero" className="group flex items-center gap-2 mb-6">
               <Image
-                src="/infinity-logo.png"
+                src="/infinity-logo-v2.png"
                 alt="The Infinity Art"
-                width={160}
-                height={42}
-                className="h-9 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                width={237}
+                height={44}
+                className="h-11 w-auto opacity-80 group-hover:opacity-100 transition-opacity duration-300"
               />
             </Link>
             <p className="text-foreground-muted text-sm leading-relaxed mb-6 max-w-xs">
