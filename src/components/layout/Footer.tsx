@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Globe, Palette, Mail, Phone, MapPin } from "lucide-react";
 
 const socialLinks = [
@@ -18,6 +19,7 @@ const serviceLinks = [
   { label: "Business Card Design", href: "#portfolio" },
   { label: "Wedding Invitations", href: "#portfolio" },
   { label: "3D Mockups & Renders", href: "#portfolio" },
+  { label: "Neon Sign Design", href: "#portfolio" },
   { label: "Banner Design", href: "#portfolio" },
   { label: "Brand Identity", href: "#portfolio" },
 ];
@@ -34,18 +36,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link href="#hero" className="group flex items-center gap-3 mb-6">
-              <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
-                <span className="text-accent font-serif font-bold text-lg">∞</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold tracking-wider text-foreground leading-none">
-                  THE INFINITY
-                </span>
-                <span className="text-[10px] font-medium tracking-[0.3em] text-accent uppercase leading-none mt-0.5">
-                  ART
-                </span>
-              </div>
+            <Link href="#hero" className="group flex items-center gap-2 mb-6">
+              <Image
+                src="/infinity-logo.png"
+                alt="The Infinity Art"
+                width={160}
+                height={42}
+                className="h-9 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+              />
             </Link>
             <p className="text-foreground-muted text-sm leading-relaxed mb-6 max-w-xs">
               Premium graphic design studio with 15+ years of experience

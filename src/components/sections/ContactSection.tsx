@@ -13,6 +13,7 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import Image from "next/image";
 import SectionHeading from "@/components/shared/SectionHeading";
 import RevealOnScroll from "@/components/shared/RevealOnScroll";
 
@@ -37,6 +38,7 @@ const projectTypes = [
   "Business Card Design",
   "Wedding Invitation Design",
   "3D Mockup / Render",
+  "Neon Sign Design",
   "Banner Design",
   "Social Media Templates",
   "Brand Identity / Branding",
@@ -156,6 +158,25 @@ export default function ContactSection() {
                     </p>
                   </div>
                 </div>
+
+              {/* Location QR Code */}
+              <div className="flex items-center gap-4 p-4 rounded-xl border border-border bg-card">
+                <div className="h-16 w-16 rounded-lg bg-white flex items-center justify-center shrink-0 overflow-hidden">
+                  <Image
+                    src="/location-qr.png"
+                    alt="Scan for location map"
+                    width={56}
+                    height={56}
+                    className="h-14 w-14 object-contain"
+                  />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Scan for Directions</p>
+                  <p className="text-xs text-foreground-muted">
+                    Open Google Maps to our studio location
+                  </p>
+                </div>
+              </div>
               </div>
 
               {/* WhatsApp CTA */}

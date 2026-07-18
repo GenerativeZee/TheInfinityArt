@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { NavLink } from "@/types";
@@ -47,18 +48,15 @@ export default function Navbar() {
       >
         <div className="container-premium flex items-center justify-between">
           {/* Logo / Brand */}
-          <Link href="#hero" className="group flex items-center gap-3">
-            <div className="relative h-10 w-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center overflow-hidden group-hover:bg-accent/20 transition-colors duration-300">
-              <span className="text-accent font-serif font-bold text-lg">∞</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold tracking-wider text-foreground leading-none">
-                THE INFINITY
-              </span>
-              <span className="text-[10px] font-medium tracking-[0.3em] text-accent uppercase leading-none mt-0.5">
-                ART
-              </span>
-            </div>
+          <Link href="#hero" className="group flex items-center gap-2">
+            <Image
+              src="/infinity-logo.png"
+              alt="The Infinity Art"
+              width={180}
+              height={48}
+              className="h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
