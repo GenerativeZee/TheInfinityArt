@@ -2,14 +2,83 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  PenTool,
+  Paintbrush,
+  Pencil,
+  Palette,
+  Ruler,
+  Mail,
+  Layers,
+  Pipette,
+  Camera,
+  Infinity as InfinityIcon,
+  Grid,
+  Scissors,
+  Crop,
+  Sparkles,
+} from "lucide-react";
 
 /**
- * Upgraded Premium Preloader & Splash Screen
- * Featuring SVG stroke-draw animation, animated progress counter,
- * cycling keywords, gold background grid, pulsing radial glow,
- * drifting geometric ghost shapes, staggered corner meta-text,
- * ambient gold dust motes, and a split-curtain wipe reveal.
+ * Static layout positions for the design doodles wallpaper.
+ * Frames the center third (leaving x: 32%-68%, y: 28%-72% completely clear).
  */
+const backgroundDoodles = [
+  // Left side framing
+  { id: 1, name: "PenTool", x: 10, y: 15, size: 24, rotate: -10 },
+  { id: 2, name: "Palette", x: 15, y: 35, size: 28, rotate: 12 },
+  { id: 3, name: "Layers", x: 8, y: 55, size: 22, rotate: -8 },
+  { id: 4, name: "Ruler", x: 22, y: 75, size: 26, rotate: 15 },
+  { id: 5, name: "Camera", x: 12, y: 88, size: 20, rotate: -5 },
+  { id: 6, name: "Scissors", x: 25, y: 22, size: 24, rotate: 8 },
+  { id: 7, name: "Pipette", x: 28, y: 48, size: 18, rotate: -12 },
+  { id: 8, name: "Infinity", x: 20, y: 64, size: 30, rotate: 5 },
+
+  // Right side framing
+  { id: 9, name: "Paintbrush", x: 85, y: 12, size: 26, rotate: 10 },
+  { id: 10, name: "Crop", x: 78, y: 28, size: 22, rotate: -15 },
+  { id: 11, name: "Grid", x: 90, y: 45, size: 28, rotate: 5 },
+  { id: 12, name: "Pencil", x: 82, y: 62, size: 24, rotate: -8 },
+  { id: 13, name: "Mail", x: 88, y: 80, size: 20, rotate: 12 },
+  { id: 14, name: "PenTool", x: 74, y: 88, size: 26, rotate: -10 },
+  { id: 15, name: "Palette", x: 72, y: 50, size: 22, rotate: 15 },
+  { id: 16, name: "Layers", x: 92, y: 24, size: 24, rotate: -5 },
+
+  // Top area framing
+  { id: 17, name: "Pencil", x: 38, y: 12, size: 20, rotate: 8 },
+  { id: 18, name: "Ruler", x: 62, y: 14, size: 22, rotate: -12 },
+
+  // Bottom area framing
+  { id: 19, name: "Scissors", x: 42, y: 88, size: 24, rotate: -8 },
+  { id: 20, name: "Crop", x: 58, y: 86, size: 22, rotate: 10 },
+];
+
+/** Mapped icon rendering utility */
+function DoodleIcon({ name, size }: { name: string; size: number }) {
+  const props = {
+    size,
+    strokeWidth: 1.25,
+    className: "text-accent/5 select-none pointer-events-none",
+  };
+
+  switch (name) {
+    case "PenTool": return <PenTool {...props} />;
+    case "Paintbrush": return <Paintbrush {...props} />;
+    case "Pencil": return <Pencil {...props} />;
+    case "Palette": return <Palette {...props} />;
+    case "Ruler": return <Ruler {...props} />;
+    case "Mail": return <Mail {...props} />;
+    case "Layers": return <Layers {...props} />;
+    case "Pipette": return <Pipette {...props} />;
+    case "Camera": return <Camera {...props} />;
+    case "Infinity": return <InfinityIcon {...props} />;
+    case "Grid": return <Grid {...props} />;
+    case "Scissors": return <Scissors {...props} />;
+    case "Crop": return <Crop {...props} />;
+    default: return <Sparkles {...props} />;
+  }
+}
+
 export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
@@ -126,44 +195,32 @@ export default function LoadingScreen() {
             />
           )}
 
-          {/* 2. Ghost Geometric Outlines (Slow Drift) */}
-          {!reducedMotion && (
-            <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-              {/* Hexagon Outline (Top Left) */}
-              <motion.div
-                className="absolute left-[10%] top-[15%] opacity-5 w-48 h-48"
-                animate={{
-                  rotate: 360,
-                  y: [0, -12, 0],
-                }}
-                transition={{
-                  rotate: { duration: 30, repeat: Infinity, ease: "linear" },
-                  y: { duration: 8, repeat: Infinity, ease: "easeInOut" }
-                }}
-              >
-                <svg viewBox="0 0 100 100" className="w-full h-full stroke-accent stroke-[0.75] fill-none">
-                  <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" />
-                </svg>
-              </motion.div>
-
-              {/* Diamond Outline (Bottom Right) */}
-              <motion.div
-                className="absolute right-[12%] bottom-[18%] opacity-5 w-36 h-36"
-                animate={{
-                  rotate: -360,
-                  x: [0, 10, 0],
-                }}
-                transition={{
-                  rotate: { duration: 25, repeat: Infinity, ease: "linear" },
-                  x: { duration: 9, repeat: Infinity, ease: "easeInOut" }
+          {/* 2. Scattered Design Tool Doodles (WhatsApp Wallpaper style) */}
+          <motion.div
+            {...(!reducedMotion ? {
+              initial: { opacity: 0, y: 12 },
+              animate: { opacity: 1, y: 0 },
+              exit: { opacity: 0, y: -12 },
+              transition: { duration: 0.8, ease: "easeOut", delay: 0.2 }
+            } : {
+              style: { opacity: 1 }
+            })}
+            className="absolute inset-0 z-20 pointer-events-none overflow-hidden"
+          >
+            {backgroundDoodles.map((doodle) => (
+              <div
+                key={doodle.id}
+                className="absolute"
+                style={{
+                  left: `${doodle.x}%`,
+                  top: `${doodle.y}%`,
+                  transform: `rotate(${doodle.rotate}deg) translate(-50%, -50%)`,
                 }}
               >
-                <svg viewBox="0 0 100 100" className="w-full h-full stroke-accent stroke-[0.75] fill-none">
-                  <polygon points="50,5 95,50 50,95 5,50" />
-                </svg>
-              </motion.div>
-            </div>
-          )}
+                <DoodleIcon name={doodle.name} size={doodle.size} />
+              </div>
+            ))}
+          </motion.div>
 
           {/* 3. Pulsing Radial Glow Centered Behind Logo */}
           {!reducedMotion && (
