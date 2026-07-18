@@ -58,7 +58,7 @@ function DoodleIcon({ name, size }: { name: string; size: number }) {
   const props = {
     size,
     strokeWidth: 1.25,
-    className: "text-accent/5 select-none pointer-events-none",
+    className: "text-accent/12 select-none pointer-events-none",
   };
 
   switch (name) {
