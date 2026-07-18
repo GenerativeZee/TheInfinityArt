@@ -6,7 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 /**
  * Upgraded Premium Preloader & Splash Screen
  * Featuring SVG stroke-draw animation, animated progress counter,
- * cycling intro keywords, ambient gold dust motes, and a curtain-split wipe.
+ * cycling keywords, gold background grid, pulsing radial glow,
+ * drifting geometric ghost shapes, staggered corner meta-text,
+ * ambient gold dust motes, and a split-curtain wipe reveal.
  */
 export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
@@ -70,6 +72,14 @@ export default function LoadingScreen() {
   // Split-curtain slide ease curve
   const curtainEase = [0.85, 0, 0.15, 1] as const;
 
+  // Stagger configurations for corner meta-text elements
+  const cornerTransition = (delay: number) => ({
+    initial: { opacity: 0, y: 8 },
+    animate: { opacity: 0.45, y: 0 },
+    exit: { opacity: 0, y: -8 },
+    transition: { delay, duration: 0.5, ease: "easeOut" as const }
+  });
+
   return (
     <AnimatePresence>
       {isLoading && (
@@ -78,19 +88,19 @@ export default function LoadingScreen() {
           exit={reducedMotion ? { opacity: 0 } : undefined}
           transition={{ duration: 0.5 }}
         >
-          {/* Curtain wipe background panels (skip if reduced motion is preferred) */}
+          {/* Curtain wipe background panels */}
           {!reducedMotion && (
             <>
               {/* Left curtain panel */}
               <motion.div
-                className="absolute inset-y-0 left-0 w-1/2 bg-background border-r border-white/5"
+                className="absolute inset-y-0 left-0 w-1/2 bg-background border-r border-white/5 z-10"
                 initial={{ x: 0 }}
                 exit={{ x: "-100%" }}
                 transition={{ duration: 1.0, ease: curtainEase }}
               />
               {/* Right curtain panel */}
               <motion.div
-                className="absolute inset-y-0 right-0 w-1/2 bg-background border-l border-white/5"
+                className="absolute inset-y-0 right-0 w-1/2 bg-background border-l border-white/5 z-10"
                 initial={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ duration: 1.0, ease: curtainEase }}
@@ -99,11 +109,89 @@ export default function LoadingScreen() {
           )}
 
           {/* Fallback solid background if curtain animations are disabled */}
-          {reducedMotion && <div className="absolute inset-0 bg-background" />}
+          {reducedMotion && <div className="absolute inset-0 bg-background z-10" />}
 
-          {/* Floating Gold Particles (Skip on reduced motion for UX) */}
+          {/* ──────────────────────────────────────────────────────────────
+             Ambient Background Layers (Placed inside the curtain layers so they wipe away)
+             ────────────────────────────────────────────────────────────── */}
+          
+          {/* 1. Gold Technical Grid Overlay */}
           {!reducedMotion && (
-            <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-20">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="absolute inset-0 bg-[linear-gradient(to_right,rgba(201,161,92,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(201,161,92,0.03)_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] z-20 pointer-events-none"
+            />
+          )}
+
+          {/* 2. Ghost Geometric Outlines (Slow Drift) */}
+          {!reducedMotion && (
+            <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+              {/* Hexagon Outline (Top Left) */}
+              <motion.div
+                className="absolute left-[10%] top-[15%] opacity-5 w-48 h-48"
+                animate={{
+                  rotate: 360,
+                  y: [0, -12, 0],
+                }}
+                transition={{
+                  rotate: { duration: 30, repeat: Infinity, ease: "linear" },
+                  y: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+                }}
+              >
+                <svg viewBox="0 0 100 100" className="w-full h-full stroke-accent stroke-[0.75] fill-none">
+                  <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" />
+                </svg>
+              </motion.div>
+
+              {/* Diamond Outline (Bottom Right) */}
+              <motion.div
+                className="absolute right-[12%] bottom-[18%] opacity-5 w-36 h-36"
+                animate={{
+                  rotate: -360,
+                  x: [0, 10, 0],
+                }}
+                transition={{
+                  rotate: { duration: 25, repeat: Infinity, ease: "linear" },
+                  x: { duration: 9, repeat: Infinity, ease: "easeInOut" }
+                }}
+              >
+                <svg viewBox="0 0 100 100" className="w-full h-full stroke-accent stroke-[0.75] fill-none">
+                  <polygon points="50,5 95,50 50,95 5,50" />
+                </svg>
+              </motion.div>
+            </div>
+          )}
+
+          {/* 3. Pulsing Radial Glow Centered Behind Logo */}
+          {!reducedMotion && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+              className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none"
+            >
+              <motion.div
+                className="w-[480px] h-[480px] rounded-full bg-[radial-gradient(circle,rgba(201,161,92,0.12)_0%,transparent_70%)] blur-[50px]"
+                animate={{
+                  scale: [1, 1.08, 1],
+                  opacity: [0.7, 1, 0.7]
+                }}
+                transition={{
+                  duration: 4.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+            </motion.div>
+          )}
+
+          {/* 4. Floating Gold Dust Motes */}
+          {!reducedMotion && (
+            <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-25">
               {particles.map((p) => (
                 <motion.div
                   key={p.id}
@@ -114,9 +202,9 @@ export default function LoadingScreen() {
                     transform: `translate(${p.x}px, ${p.y}px)`,
                   }}
                   animate={{
-                    y: [p.y, p.y - 40, p.y],
-                    x: [p.x, p.x + (Math.random() * 20 - 10), p.x],
-                    opacity: [0.1, 0.4, 0.1],
+                    y: [p.y, p.y - 45, p.y],
+                    x: [p.x, p.x + (Math.random() * 24 - 12), p.x],
+                    opacity: [0.1, 0.45, 0.1],
                   }}
                   transition={{
                     duration: p.duration,
@@ -129,7 +217,45 @@ export default function LoadingScreen() {
             </div>
           )}
 
-          {/* Central Logo & Progress Lockup */}
+          {/* 5. Corner Meta-text Details (Staggered Assembly) */}
+          <div className="absolute inset-0 z-25 pointer-events-none p-8 font-mono text-[9px] tracking-[0.25em] text-foreground uppercase hidden sm:block">
+            {/* Top-Left: Founding Anniversary */}
+            <motion.div
+              {...(!reducedMotion ? cornerTransition(0.4) : { className: "opacity-40" })}
+              className="absolute top-8 left-8"
+            >
+              15+ Years of Craft
+            </motion.div>
+
+            {/* Top-Right: Business Scope */}
+            <motion.div
+              {...(!reducedMotion ? cornerTransition(0.55) : { className: "opacity-40" })}
+              className="absolute top-8 right-8"
+            >
+              Premium Graphic Design
+            </motion.div>
+
+            {/* Bottom-Left: Brand Moto */}
+            <motion.div
+              {...(!reducedMotion ? cornerTransition(0.7) : { className: "opacity-40" })}
+              className="absolute bottom-8 left-8"
+            >
+              Crafted With Precision
+            </motion.div>
+
+            {/* Bottom-Right: Experience Phase */}
+            <motion.div
+              {...(!reducedMotion ? cornerTransition(0.85) : { className: "opacity-40" })}
+              className="absolute bottom-8 right-8 text-right flex items-center gap-1.5"
+            >
+              <span className="w-1 h-1 rounded-full bg-accent animate-pulse" />
+              01 — Initializing Experience
+            </motion.div>
+          </div>
+
+          {/* ──────────────────────────────────────────────────────────────
+             Central Logo & Progress Card Lockup
+             ────────────────────────────────────────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -137,7 +263,7 @@ export default function LoadingScreen() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="relative z-30 flex flex-col items-center gap-6"
           >
-            {/* SVG Logo Entrance (Reduced motion plays static fade) */}
+            {/* SVG Logo Draw-In */}
             <div className="relative h-20 w-36 flex items-center justify-center">
               <svg
                 viewBox="0 0 100 100"
@@ -215,13 +341,13 @@ export default function LoadingScreen() {
               </AnimatePresence>
             </div>
 
-            {/* Real progress numerical counter */}
-            <div className="flex flex-col items-center gap-2 mt-2 w-48">
+            {/* Progress Counter & Shimmer Bar */}
+            <div className="flex flex-col items-center gap-2 mt-2 w-48 font-serif">
               <span className="text-xs font-semibold font-mono tracking-wider text-accent/80">
                 {progress}%
               </span>
 
-              {/* Progress bar with glow and shimmer gradient fill */}
+              {/* Progress bar */}
               <div className="w-full h-[3px] bg-white/10 rounded-full overflow-hidden relative">
                 <motion.div
                   className="h-full bg-gradient-to-r from-accent/80 via-accent to-accent-light rounded-full shadow-[0_0_8px_#C9A15C]"
